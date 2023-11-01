@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atcco", "Atcco\Atcco.csproj", "{638C2462-1C45-4647-A5FF-745368113DFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{638C2462-1C45-4647-A5FF-745368113DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638C2462-1C45-4647-A5FF-745368113DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638C2462-1C45-4647-A5FF-745368113DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638C2462-1C45-4647-A5FF-745368113DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {387B0C55-C5B2-4E37-9EF1-BFAADC5D5780}
+	EndGlobalSection
+EndGlobal

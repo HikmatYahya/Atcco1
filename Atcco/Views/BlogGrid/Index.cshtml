@@ -1,0 +1,270 @@
+﻿@using Atcco.Models.Projects;
+@using System.ComponentModel.DataAnnotations;
+@using System.Linq;
+
+@model IEnumerable<Project>
+
+@{
+	ViewData["Title"] = "Blog";
+	Layout = "_HomeLayout";
+}
+
+
+<body>
+	<!--[if lt IE 8]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+	<div class="site-preloader-wrap">
+		<div class="spinner"></div>
+	</div>
+
+	<section class="page-header padding">
+		<div class="container">
+			<div class="page-content text-center">
+				<h2>Speciallized news</h2>
+				<p>Construction & Building.</p>
+			</div>
+		</div>
+	</section>
+	<section class="blog-section padding">
+		<div class="container">
+			<div class="blog-wrap row">
+				<div class="col-lg-8 sm-padding">
+					<div class="row">
+
+						@foreach (var item in Model)
+						{
+
+
+
+							<div class="col-sm-6 padding-15">
+								<div class="blog-item box-shadow">
+									<div class="blog-thumb">
+										<img src="~/img/@item.Images[0].imagePath" alt="post">
+										<span class="category"><a href="#">@(EnumHelper.GetDisplayName(item.category))</a></span>
+									</div>
+									<div class="blog-content">
+										<h3>
+											<a asp-area="" asp-controller="SingleBlog" asp-action="Index" asp-route-id="@item.ProjectId" asp-route-category="@item.category">
+												@Html.DisplayFor(modelItem => item.Title)
+											</a>
+										</h3>
+										<p>
+											<div class="item">
+												@if (item.Content.Length > 100)
+												{
+													<span class="shortContent">@item.Content.Substring(0, 100)...</span>
+													<span class="fullContent" style="display: none;">@item.Content</span>
+													<button class="viewMoreBtn" onclick="">
+														<a class="read-more" asp-area="" asp-controller="SingleBlog" asp-action="Index" asp-route-id="@item.ProjectId" asp-route-category="@item.category">
+															View More</a>
+													</button>
+												}
+												else
+												{
+													@Html.DisplayFor(modelItem => item.Content)
+												}
+											</div>
+
+
+										</p>
+
+										@* <a href="#" class="read-more">Read More</a> *@
+									</div>
+								</div>
+							</div>
+						}
+
+
+					</div>
+
+				</div>
+				<div class="col-lg-4 padding-15">
+					<div class="sidebar-wrap">
+						<div class="widget-content">
+							<form action="#" class="search-form">
+								<input type="text" class="form-control" placeholder="Type here">
+								<button class="search-btn" type="button"><i class="fa fa-search"></i></button>
+							</form>
+						</div>
+						<div class="widget-content">
+							<h4>Categories</h4>
+							<ul class="widget-links">
+
+
+								@foreach (var category in Enum.GetValues(typeof(Category)))
+								{
+									var enumDisplayName = category.GetType()
+									.GetMember(category.ToString())[0]
+									.GetCustomAttributes(typeof(DisplayAttribute), false)
+									.OfType<DisplayAttribute>()
+									.FirstOrDefault();
+
+									<li><a asp-area="" asp-controller="BlogGrid" asp-action="Index" asp-route-category="@category">@(enumDisplayName?.Name ?? category.ToString())</a></li>
+								}
+							</ul>
+						</div>
+						<div class="widget-content">
+							<h4>Recent Posts</h4>
+							<ul class="thumb-post">
+
+								@{
+									@foreach (var item in Model.OrderByDescending(p => p.PublishDate) // Assuming you have a date property to determine the order
+										.Take(3))
+									{
+										<li>
+											<img src="~/img/@item.Images[0].imagePath" alt="post"><a href="#">
+												@Html.DisplayFor(modelItem => item.Title)
+											</a>
+										</li>
+
+									}
+								}
+
+
+							</ul>
+						</div>
+						<div class="widget-content">
+							<h4>Tag Clouds</h4>
+							<ul class="tags">
+								<li><a href="#">Architecture</a></li>
+								<li><a href="#">Interior Design</a></li>
+								<li><a href="#">Designing</a></li>
+								<li><a href="#">Construction</a></li>
+								<li><a href="#">Buildings</a></li>
+								<li><a href="#">Industrial</a></li>
+								<li><a href="#">Factory</a></li>
+								<li><a href="#">Material</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="widget-section padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-sm-6 sm-padding">
+					<div class="widget-content">
+						<a href="#"><img src="img/logo.png" alt="brand"></a>
+						<p>Building your own home is about desire, fantasy. But it’s achievable anyone can do it.</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-6 sm-padding">
+					<div class="widget-content">
+						<h4>Company</h4>
+						<ul class="widget-links">
+							<li>
+								<a class="" asp-area="" asp-controller="About" asp-action="Index">
+									About Us
+								</a>
+							</li>
+							<li>
+								<a class="" asp-area="" asp-controller="About" asp-action="AboutAtccoSteel">
+									About Atcco Steel
+								</a>
+							</li>
+							<li>
+								<a class="" asp-area="" asp-controller="Services" asp-action="Index">
+									Services
+								</a>
+							</li>
+							<li><a href="#">Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 sm-padding">
+					<div class="widget-content">
+						<h4>Headquaters</h4>
+						<p>
+							Wasfi Al Tal (Gardens) Street, Building 41 Yathreb Commercial Complex
+						</p>
+						<span><a href="http://html.dynamiclayers.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8e0cdc4c4c7e8e9c4cdd0c9fcc0cdc5cd86c6cddc">[email&#160;protected]</a></span>
+						<span>(962 6) 5530381, 5537064</span>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 sm-padding">
+					<div class="widget-content">
+						<h4>Newslatter Subscription</h4>
+						<p>Subscribe and get 10% off from our <br>architecture company.</p>
+						<div class="subscribe-box clearfix">
+							<div class="subscribe-form-wrap">
+								<form action="#" class="subscribe-form">
+									<input type="email" name="email" id="subs-email" class="form-input" placeholder="Enter Your Email Address...">
+									<button type="submit" class="submit-btn">Subscribe</button>
+									<div id="subscribe-result">
+										<p class="subscription-success"></p>
+										<p class="subscription-error"></p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer-section align-center">
+		<div class="container">
+			<p><a href="">RaspBerry M Agency</a></p>
+		</div>
+	</footer>
+	<a data-scroll href="#header" id="scroll-to-top"><i class="arrow_carrot-up"></i></a>
+
+	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+	<script src="js/vendor/jquery-1.12.4.min.js"></script>
+
+	<script src="js/vendor/bootstrap.min.js"></script>
+
+	<script src="js/vendor/tether.min.js"></script>
+
+	<script src="js/vendor/headroom.min.js"></script>
+
+	<script src="js/vendor/owl.carousel.min.js"></script>
+
+	<script src="js/vendor/smooth-scroll.min.js"></script>
+
+	<script src="js/vendor/venobox.min.js"></script>
+
+	<script src="js/vendor/jquery.ajaxchimp.min.js"></script>
+
+	<script src="js/vendor/slick.min.js"></script>
+
+	<script src="js/vendor/waypoints.min.js"></script>
+
+	<script src="js/vendor/odometer.min.js"></script>
+
+	<script src="js/vendor/wow.min.js"></script>
+
+	<script src="js/main.js"></script>
+
+
+	<script>
+		function toggleContent(button) {
+			var item = button.closest('.item'); // Find the closest parent item
+			var shortContent = item.querySelector('.shortContent');
+			var fullContent = item.querySelector('.fullContent');
+
+			if (shortContent.style.display === 'none') {
+				shortContent.style.display = 'inline';
+				fullContent.style.display = 'none';
+				button.innerText = 'View More';
+			} else {
+				shortContent.style.display = 'none';
+				fullContent.style.display = 'inline';
+				button.innerText = 'View Less';
+			}
+		}
+
+	</script>
+
+</body>
+
+
+
+
+
+
+
+

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head >
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Atcco</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css"runat="server"  asp-append-version="true" />
+	<link rel="stylesheet" href="~/Atcco.styles.css" runat="server" asp-append-version="true" />
+	<link rel="shortcut icon" type="image/x-icon" runat="server" href="~/img/logo.png" asp-append-version="true" />
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" asp-append-version="true" />
+
+	@* <base href="https://localhost:7218/" /> *@
+
+
+	<link rel="stylesheet" href="css/fontawesome.min.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/themify-icons.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/elegant-line-icons.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/elegant-font-icons.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/flaticon.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/animate.min.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/slick.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/slider.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/odometer.min.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/venobox/venobox.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/owl.carousel.css" asp-append-version="true">
+
+	<link rel="stylesheet" href="css/main.css" asp-append-version="true">
+
+
+
+
+
+
+</head>
+<body>
+	<header class="header">
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+			<div class="container-fluid">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt="Attco"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse  collapse d-sm-inline-flex  justify-content-between">
+
+					<ul class="navbar-nav flex-grow-1 justify-content-end dl-menu ">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+
+
+
+						<li class="nav-item dropdown">
+							<a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Projects
+							</a>
+							<ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink1">
+								<li><a class="text-dark dropdown-item" asp-area="" asp-controller="Projects" asp-action="Index">Projects</a></li>
+								<li><a class="text-dark dropdown-item" asp-area="" asp-controller="BlogGrid" asp-action="Index">Blog Grid</a></li>
+								<li><a class="text-dark dropdown-item" asp-area="" asp-controller="OurProjects" asp-action="Index">All Projects</a></li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown">
+							<a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								About
+							</a>
+							<ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
+								<li>
+									<a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">
+										About Us
+									</a>
+								</li>
+								<li>
+									<a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="AboutAtccoSteel">
+										About Atcoo Steel
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item" aria-labelledby="navbarDropdownMenuLink">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Services" asp-action="Index">
+								Services
+							</a>
+
+						</li>
+					</ul>
+					<partial name="_LoginPartial" />
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top text-muted">
+		<div class="container">
+			&copy; 2023 - Atcco - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+
+	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" asp-append-version="true"></script>
+	<script src="js/vendor/jquery-1.12.4.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/bootstrap.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/tether.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/headroom.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/owl.carousel.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/smooth-scroll.min.js"asp-append-version="true" ></script>
+
+	<script src="js/vendor/venobox.min.js"asp-append-version="true" ></script>
+
+	<script src="js/vendor/jquery.ajaxchimp.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/slick.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/waypoints.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/odometer.min.js" asp-append-version="true"></script>
+
+	<script src="js/vendor/wow.min.js" asp-append-version="true"></script>
+
+	<script src="js/main.js" asp-append-version="true"></script>
+
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,187 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Atcco</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/Atcco.styles.css" asp-append-version="true" />
+	<link rel="shortcut icon" type="image/x-icon" href="~/img/logo.png" asp-append-version="true" />
+
+
+
+	@* What the Heck *@
+	<base href="https://localhost:7069/" />
+
+
+	<link rel="stylesheet" href="css/fontawesome.min.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/themify-icons.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/elegant-line-icons.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/elegant-font-icons.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/flaticon.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/animate.min.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/bootstrap.min.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/slick.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/slider.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/odometer.min.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/venobox/venobox.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/owl.carousel.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/main.css" asp-append-version="true" />
+
+	<link rel="stylesheet" href="css/responsive.css" asp-append-version="true" />
+	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" asp-append-version="true"></script>
+
+</head>
+<body>
+	<header class="header">
+		<nav class=" navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+			<div class="container-fluid ">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt="Attco"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="header-menu-wrap navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class=" dl-menu navbar-nav flex-grow-1 justify-content-end">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link text-dark " href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Projects
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								@if (SignInManager.IsSignedIn(User))
+								{
+									<li><a class="text-dark dropdown-item" asp-area="" asp-controller="Projects" asp-action="Index">Projects</a></li>
+								}
+								<li><a class="text-dark dropdown-item" asp-area="" asp-controller="BlogGrid" asp-action="Index">Blog Grid</a></li>
+								<li><a class="text-dark dropdown-item" asp-area="" asp-controller="OurProjects" asp-action="Index">All Projects</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">About</a>
+							<ul>
+								<li>
+									<a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">
+										About Us
+									</a>
+								</li>
+								<li>
+									<a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="AboutAtccoSteel">
+										About Atcoo Steel
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Services" asp-action="Index">
+								Services
+							</a>
+
+						</li>
+					</ul>
+					<partial name="_LoginPartial" />
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	@*<header class="header">
+	<div class="primary-header">
+	<div class="container">
+	<div class="primary-header-inner">
+	<div class="header-logo">
+	<a href="#"><img src="img/logo.png" alt="Indico"></a>
+	</div>
+	<div class="header-menu-wrap">
+	<ul class="dl-menu">
+	<li>
+	<a href="#">Home</a>
+	<ul>
+	<li><a href="index.html">Home Default</a></li>
+	<li><a href="index-2.html">Home Modern</a></li>
+	</ul>
+	</li>
+	<li>
+	<a href="#">About</a>
+	<ul>
+	<li><a href="about-us.html">About Us</a></li>
+	<li><a href="about-company.html">About Company</a></li>
+	</ul>
+	</li>
+	<li>
+	<a href="#">Services</a>
+	<ul>
+	<li><a href="services-1.html">Services 01</a></li>
+	<li><a href="services-2.html">Services 02</a></li>
+	</ul>
+	</li>
+	<li>
+	<a href="Projects.Html">Projects</a>
+	<ul>
+	<li><a href="projects.html">Our Projects</a></li>
+	<li><a href="project-single.html">Project Single</a></li>
+	<li><a href="team.html">Our Team</a></li>
+	<li><a href="testimonial.html">Testimonial</a></li>
+	<li><a href="404.html">404 Error</a></li>
+	</ul>
+	</li>
+	<li>
+	<a href="#">Blog</a>
+	<ul>
+	<li><a href="blog-grid.html">Blog Grid</a></li>
+	<li><a href="blog-classic.html">Blog Classic</a></li>
+	<li><a href="blog-single.html">Blog Single</a></li>
+	</ul>
+	</li>
+	<li><a href="contact.html">Contact</a></li>
+	</ul>
+	</div>
+	<div class="header-right">
+
+	<div class="mobile-menu-icon">
+	<div class="burger-menu">
+	<div class="line-menu line-half first-line"></div>
+	<div class="line-menu"></div>
+	<div class="line-menu line-half last-line"></div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</header>*@
+
+
+	<div class="">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
