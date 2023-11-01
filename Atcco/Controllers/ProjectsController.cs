@@ -142,8 +142,21 @@ namespace Atcco.Controllers
         {
 
 
+            project = await _context.Projects.FindAsync(id);
+
+            var listImage = await _context.ImagePaths.Where(x => x.ProjectId == project.ProjectId).ToListAsync();
+
+            foreach (var item in listImage)
+            {
+                _context.ImagePaths.Remove(item);
+            }
+
+
 
             project.Images = new List<ImagePath>();
+
+
+
 
             var _uploadFolderPath = FileUploadConstants.UploadFolderPath;
             if (files != null && files.Count > 0)
@@ -156,9 +169,12 @@ namespace Atcco.Controllers
                     {
                         await item.CopyToAsync(stream);
                     }
+                    //project.Images = _context.ImagePaths.Where(x => x.ProjectId == project.ProjectId).ToList();
+
                     ImagePath imagePath = new ImagePath();
                     imagePath.imagePath = fileName;
 
+                   
                     project.Images.Add(imagePath);
                 }
 
