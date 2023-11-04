@@ -33,5 +33,8 @@ namespace Atcco.Models.Projects
 
 		[Display(Name = "Atcco Steel")]
 		AtccoSteel,
-	}
+
+        [Display(Name = "Others")]
+        Others,
+    }
 }
