@@ -1,0 +1,127 @@
+﻿@page
+@model LoginModel
+
+@{
+	ViewData["Title"] = "Log in";
+
+	Layout = "_HomeLayout";
+
+}
+<div class="row">
+	<h1 class="col-2 container justify-content-center">@ViewData["Title"] </h1>
+
+</div>
+
+<div class="row">
+	<div>
+		<section class="col-md-4 container justify-content-center">
+			<form id="account" method="post">
+
+				<hr />
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-floating">
+					<input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+					<label asp-for="Input.Email" class="form-label"></label>
+					<span asp-validation-for="Input.Email" class="text-danger"></span>
+				</div>
+				<div class="form-floating">
+					<input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+					<label asp-for="Input.Password" class="form-label"></label>
+					<span asp-validation-for="Input.Password" class="text-danger"></span>
+				</div>
+				<div>
+					<div class="checkbox ">
+						<label asp-for="Input.RememberMe" class="form-label">
+							<input class="form-check-input" asp-for="Input.RememberMe" />
+							@Html.DisplayNameFor(m => m.Input.RememberMe)
+						</label>
+					</div>
+				</div>
+				<div>
+					<button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+				</div>
+				@* 	<div>
+				<p>
+				<a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+				</p>
+				<p>
+				<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+				</p>
+				<p>
+				<a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+				</p>
+				</div> *@
+			</form>
+			<hr />
+		</section>
+
+
+
+
+		<section class="widget-section padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 sm-padding">
+						<div class="widget-content">
+							<a href="#"><img src="img/logo.png" alt="brand"></a>
+							<p>Building your own home is about desire, fantasy. But it’s achievable anyone can do it.</p>
+						</div>
+					</div>
+					<div class="col-lg-2 col-sm-6 sm-padding">
+						<div class="widget-content">
+							<h4>Company</h4>
+							<ul class="widget-links">
+								<li><a href="#">About Us</a></li>
+								<li>
+									<a class="" asp-area="" asp-controller="Services" asp-action="Index">
+										Services
+									</a>
+								</li>
+								<li><a href="#">Clients Reviews</a></li>
+								<li><a href="#">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 sm-padding">
+						<div class="widget-content">
+							<h4>Headquaters</h4>
+							<p>
+								Wasfi Al Tal (Gardens) Street, Building 41 Yathreb Commercial Complex
+							</p>
+							<span><a href="http://html.dynamiclayers.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8e0cdc4c4c7e8e9c4cdd0c9fcc0cdc5cd86c6cddc">[email&#160;protected]</a></span>
+							<span>(962 6) 5530381, 5537064</span>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 sm-padding">
+						<div class="widget-content">
+							<h4>Newslatter Subscription</h4>
+							<p>Subscribe and get 10% off from our <br>architecture company.</p>
+							<div class="subscribe-box clearfix">
+								<div class="subscribe-form-wrap">
+									<form action="#" class="subscribe-form">
+										<input type="email" name="email" id="subs-email" class="form-input" placeholder="Enter Your Email Address...">
+										<button type="submit" class="submit-btn">Subscribe</button>
+										<div id="subscribe-result">
+											<p class="subscription-success"></p>
+											<p class="subscription-error"></p>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer-section align-center">
+			<div class="container">
+				<p><a href="">RaspBerry M Agency</a></p>
+			</div>
+		</footer>
+	</div>
+</div>
+
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+		}
